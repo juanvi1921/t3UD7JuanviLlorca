@@ -181,4 +181,14 @@ class VerificaContrasenyaTest {
          assertTrue(correcta.isEsValida());
          assertEquals(esperada.getMsg(), correcta.getMsg());
      }
+
+     @Test
+    public void testVerificar18() {
+         VerificaContrasenya vc = new VerificaContrasenya("#P4blit0cl4v0uncl4vit0#");
+         EsCorrecta correcta = vc.verificacion("#P4blit0cl4v0uncl4vit0#");
+         EsCorrecta esperada = new EsCorrecta(true,
+                 new StringBuilder(""));
+         assertTrue(correcta.isEsValida());
+         assertEquals(esperada.getMsg(), correcta.getMsg());
+     }
 }

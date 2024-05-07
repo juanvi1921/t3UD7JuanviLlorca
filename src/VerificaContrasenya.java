@@ -19,15 +19,11 @@ public class VerificaContrasenya {
     public EsCorrecta verificacion(String contrasenya) {
         StringBuilder mensaje = new StringBuilder();
         if (contrasenya.length() < 8) mensaje.append(tipoErrores().get(0));
-        if (contrasenya.matches())
-        if (contrasenya.length() < 8) {
-            return new EsCorrecta(false, tipoErrores().get(0) + "\n" +
-                    tipoErrores().get(1) + "\n" + tipoErrores().get(2) + "\n" +
-                    tipoErrores().get(3));
-        }
+        if (!contrasenya.matches(".*\\d.*\\d.*")) mensaje.append(tipoErrores().get(1));
+        if (!contrasenya.matches(".*[A-Z].*")) mensaje.append(tipoErrores().get(2));
+        if (!contrasenya.matches(".*[^a-zA-Z0-9].*")) mensaje.append(tipoErrores().get(3));
 
-        //Hacerlo con StringBuilder
-        return new EsCorrecta(true, "La contrasenya es valida");
+        return new EsCorrecta(false, mensaje);
     }
 
     private List<String> tipoErrores() {
@@ -35,7 +31,7 @@ public class VerificaContrasenya {
         errores.add("La contrasenya ha de tenir almenys 8 caracters\n");
         errores.add("La contrasenya ha de contenir almenys 2 numeros\n");
         errores.add("La contrasenya ha de contenir almenys una lletra majuscula\n");
-        errores.add("La contrasenya ha de contenir almenys un caracter especial\n");
+        errores.add("La contrasenya ha de contenir almenys un caracter especial");
         return errores;
     }
 }

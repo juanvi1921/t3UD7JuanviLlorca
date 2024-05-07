@@ -1,13 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class EsCorrecta {
     private boolean esValida = false;
     private String msg = "";
 
-    public EsCorrecta(boolean esValida, String msg) {
+    public EsCorrecta(boolean esValida, StringBuilder msg) {
         this.esValida = esValida;
-        this.msg = msg;
+        this.msg = String.valueOf(msg);
     }
 
     public boolean isEsValida() {

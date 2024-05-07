@@ -18,13 +18,11 @@ public class VerificaContrasenya {
 
     public EsCorrecta verificacion(String contrasenya) {
         if (contrasenya.length() < 8) {
-            return new EsCorrecta(false, tipoErrores().get(0));
+            return new EsCorrecta(false, tipoErrores().get(0) + "\n" +
+                    tipoErrores().get(1) + "\n" + tipoErrores().get(2) + "\n" +
+                    tipoErrores().get(3));
         }
         return new EsCorrecta(true, "La contrasenya es valida");
-    }
-
-    private EsCorrecta esValida(boolean esValida, String msg) {
-        return new EsCorrecta(esValida, msg);
     }
 
     private List<String> tipoErrores() {
@@ -32,7 +30,7 @@ public class VerificaContrasenya {
         errores.add("La contrasenya ha de tenir almenys 8 caracters");
         errores.add("La contrasenya ha de contenir almenys 2 numeros");
         errores.add("La contrasenya ha de contenir almenys una lletra majuscula");
-        errores.add("La contrasenya ha de tenir almenys un caracter especial");
+        errores.add("La contrasenya ha de contenir almenys un caracter especial");
         return errores;
     }
 }

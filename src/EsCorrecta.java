@@ -6,8 +6,8 @@ public class EsCorrecta {
     private String msg = "";
 
     public EsCorrecta(boolean esValida, String msg) {
-        this.esValida = false;
-        this.msg = "";
+        this.esValida = esValida;
+        this.msg = msg;
     }
 
     public boolean isEsValida() {

@@ -121,4 +121,15 @@ class VerificaContrasenyaTest {
          assertFalse(correcta.isEsValida());
          assertEquals(esperada.getMsg(), correcta.getMsg());
      }
+
+     @Test
+    public void testVerificar12() {
+         VerificaContrasenya vc = new VerificaContrasenya("holacaracolA");
+         EsCorrecta correcta = vc.verificacion("holacaracolA");
+         EsCorrecta esperada = new EsCorrecta(false,
+                 new StringBuilder("La contrasenya ha de contenir almenys 2 numeros\n" +
+                         "La contrasenya ha de contenir almenys un caracter especial"));
+         assertFalse(correcta.isEsValida());
+         assertEquals(esperada.getMsg(), correcta.getMsg());
+     }
 }

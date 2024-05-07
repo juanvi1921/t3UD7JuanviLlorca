@@ -87,5 +87,16 @@ class VerificaContrasenyaTest {
          EsCorrecta correcta = vc.verificacion("hola12!");
          EsCorrecta esperada = new EsCorrecta(false, new StringBuilder("La contrasenya ha de tenir almenys 8 caracters\n" +
                  "La contrasenya ha de contenir almenys una lletra majuscula\n"));
+         assertFalse(correcta.isEsValida());
+         assertEquals(esperada.getMsg(), correcta.getMsg());
+     }
+    @Test
+     public void testVerificar9() {
+         VerificaContrasenya vc = new VerificaContrasenya("hola12A");
+         EsCorrecta correcta = vc.verificacion("hola12A");
+         EsCorrecta esperada = new EsCorrecta(false, new StringBuilder("La contrasenya ha de tenir almenys 8 caracters\n" +
+                 "La contrasenya ha de contenir almenys un caracter especial"));
+         assertFalse(correcta.isEsValida());
+         assertEquals(esperada.getMsg(), correcta.getMsg());
      }
 }

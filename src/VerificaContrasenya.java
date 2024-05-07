@@ -17,12 +17,27 @@ public class VerificaContrasenya {
     }
 
     public EsCorrecta verificacion(String contrasenya) {
+        boolean hayErrores = false;
         StringBuilder mensaje = new StringBuilder();
-        if (contrasenya.length() < 8) mensaje.append(tipoErrores().get(0));
-        if (!contrasenya.matches(".*\\d.*\\d.*")) mensaje.append(tipoErrores().get(1));
-        if (!contrasenya.matches(".*[A-Z].*")) mensaje.append(tipoErrores().get(2));
-        if (!contrasenya.matches(".*[^a-zA-Z0-9].*")) mensaje.append(tipoErrores().get(3));
-
+        if (contrasenya.length() < 8) {
+            mensaje.append(tipoErrores().get(0));
+            hayErrores = true;
+        }
+        if (!contrasenya.matches(".*\\d.*\\d.*")) {
+            mensaje.append(tipoErrores().get(1));
+            hayErrores = true;
+        }
+        if (!contrasenya.matches(".*[A-Z].*")) {
+            mensaje.append(tipoErrores().get(2));
+            hayErrores = true;
+        }
+        if (!contrasenya.matches(".*[^a-zA-Z0-9].*")) {
+            mensaje.append(tipoErrores().get(3));
+            hayErrores = true;
+        }
+        if (!hayErrores) {
+            return new EsCorrecta(true, new StringBuilder(""));
+        }
         return new EsCorrecta(false, mensaje);
     }
 

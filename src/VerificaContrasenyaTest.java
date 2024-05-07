@@ -171,4 +171,14 @@ class VerificaContrasenyaTest {
          assertFalse(correcta.isEsValida());
          assertEquals(esperada.getMsg(), correcta.getMsg());
      }
+
+     @Test
+    public void testVerificar17() {
+         VerificaContrasenya vc = new VerificaContrasenya("holacaracola12A!");
+         EsCorrecta correcta = vc.verificacion("holacaracola12A!");
+         EsCorrecta esperada = new EsCorrecta(true,
+                 new StringBuilder(""));
+         assertTrue(correcta.isEsValida());
+         assertEquals(esperada.getMsg(), correcta.getMsg());
+     }
 }

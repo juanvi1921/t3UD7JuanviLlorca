@@ -49,6 +49,10 @@ class VerificaContrasenyaTest {
 
     @Test
     public void testVerificar5() {
-
+        VerificaContrasenya vc = new VerificaContrasenya("holA");
+        EsCorrecta correcta = vc.verificacion("holA");
+        EsCorrecta esperada = new EsCorrecta(false, new StringBuilder("La contrasenya ha de tenir almenys 8 caracters\n" +
+                "La contrasenya ha de contenir almenys 2 numeros\n" +
+                "La contrasenya ha de contenir almenys un caracter especial"));
     }
 }
